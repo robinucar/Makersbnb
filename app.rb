@@ -9,6 +9,15 @@ class AirBnB < Sinatra::Base
     register Sinatra::Reloader
   end
   # routes
+  get '/spaces' do
+    @space = $space
+    erb(:'spaces/index')
+  end 
+
+  post '/spaces' do
+    $space = params['space']
+    redirect '/spaces' 
+  end
 
   get '/' do 
     erb :index
