@@ -66,9 +66,9 @@ CREATE DATABASE bnb_app; CREATE DATABASE bnb_app_test; To set up the appropriate
 
 ## USER STORY 8
 
-  As a propety owner,
+	 As a propety owner,
 
-  So that only I can see my listed spaces.
+	 So that only I can see my listed spaces.
 
   I want to sign up and have a unique log-in.
 
