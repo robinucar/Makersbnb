@@ -10,5 +10,25 @@ class AirBnB < Sinatra::Base
   end
   # routes
 
-  run if app_file == $PROGRAM_NAME
+  get '/' do 
+    erb :index
+  end
+
+  post '/' do 
+    p params[:email]
+    p params[:password]
+    p params[:password_confirmation]
+    redirect '/properties'
+  end
+
+  get '/properties' do 
+    erb :'properties/index'
+  end
+
+  # get '/properties/new' do 
+  #   erb :'properties/new'
+  # end
+
+  run if app_file == $0
 end
+
