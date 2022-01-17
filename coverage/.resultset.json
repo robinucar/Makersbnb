@@ -1,7 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-<<<<<<< HEAD
       "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/add_space_spec.rb": {
         "lines": [
           null,
@@ -11,26 +10,38 @@
           null,
           null,
           null,
-=======
-      "/Users/tyrone/Makersbnb/spec/features/add_space_spec.rb": {
+          null,
+          null
+        ]
+      },
+      "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/logging_in_spec.rb": {
         "lines": [
           1,
           1,
           1,
           1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
           1,
           null,
           1,
->>>>>>> 102b75c3c32420ec4de154847f78bfb577c8b638
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
           null,
           null
         ]
       },
-<<<<<<< HEAD
       "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/view_homepage_spec.rb": {
-=======
-      "/Users/tyrone/Makersbnb/spec/features/view_homepage_spec.rb": {
->>>>>>> 102b75c3c32420ec4de154847f78bfb577c8b638
         "lines": [
           1,
           1,
@@ -43,10 +54,7 @@
           1,
           1,
           1,
-<<<<<<< HEAD
           null,
-=======
->>>>>>> 102b75c3c32420ec4de154847f78bfb577c8b638
           1,
           null,
           1,
@@ -59,29 +67,37 @@
           1,
           1,
           null,
-<<<<<<< HEAD
-=======
           null
         ]
       },
-      "/Users/tyrone/Makersbnb/spec/landlord_spec.rb": {
+      "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/viewing_properties_spec.rb": {
         "lines": [
           1,
           1,
           1,
           1,
-          0,
           null,
           null,
->>>>>>> 102b75c3c32420ec4de154847f78bfb577c8b638
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
           null
         ]
       }
     },
-<<<<<<< HEAD
-    "timestamp": 1642442565
-=======
-    "timestamp": 1642440919
->>>>>>> 102b75c3c32420ec4de154847f78bfb577c8b638
+    "timestamp": 1642445222
   }
 }

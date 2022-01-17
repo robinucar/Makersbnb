@@ -11,6 +11,7 @@ class AirBnB < Sinatra::Base
   # routes
  
   get '/' do 
+    p "welcome to the home page"
     erb :index
   end
 
@@ -23,12 +24,31 @@ class AirBnB < Sinatra::Base
   end
 
   get '/properties' do 
+    p "welcome to the properties page"
     erb :'properties/index'
   end
 
-  # get '/properties/new' do 
-  #   erb :'properties/new'
-  # end
+  get '/sessions/new' do 
+    erb :'users/new'
+  end  
+    
+  post '/sessions/new' do 
+    p "signing you in"
+    redirect '/properties'
+  end
+
+  get '/properties/new' do 
+    erb :'properties/new'
+  end
+
+  post '/properties' do 
+    redirect 'properties/new'
+  end
+
+  post '/properties/new' do 
+    p params[:property]
+    redirect '/properties'
+  end
 
   run if app_file == $0
 end

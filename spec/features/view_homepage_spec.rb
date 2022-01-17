@@ -6,7 +6,7 @@ feature 'homepage' do
   
   scenario 'Entering email address and clicking sign-up takes user to book a space page' do 
     visit '/' 
-    fill_in('email', with: 'testemail@me.com')
+    fill_in :email, with: 'testemail@me.com'
     fill_in :password, with: 'pwtest123'
     fill_in :password_confirmation, with: 'pwtest123'
   

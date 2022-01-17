@@ -1,9 +1,14 @@
+<div align='right'>
+  <a href='/properties'>Properties</a>|
+  <a href=''>Requests</a>|
+  <a href='/'>Sign out</a>
+</div>
 
-<! 
-<form action="/spaces" method="post">
-<input type="text" name="space" placeholder="Enter a space" />
-<input type="submit" value="Add">
+
+
+<form action="/properties/new" method="post">
+  <input type="text" name="property" placeholder="Enter a property" />
+  <input type="submit" value="Add">
 </form>
 
-<%= @space %> 
->
+<%= @space %>
