@@ -63,3 +63,11 @@ CREATE DATABASE bnb_app; CREATE DATABASE bnb_app_test; To set up the appropriate
 	So that I can guarantee my bnb property/space will be booked on as many nights as possible, 
 
 	I want booking to be available until/unless a user has CONFIRMED their booking request..
+
+## USER STORY 8
+
+  As a propety owener,
+
+  So that only I can see my listed spaces.
+
+  I want to sign up and have a unique log-in.
