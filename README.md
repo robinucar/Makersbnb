@@ -66,7 +66,7 @@ CREATE DATABASE bnb_app; CREATE DATABASE bnb_app_test; To set up the appropriate
 
 ## USER STORY 8
 
-  As a propety owener,
+  As a propety owner,
 
   So that only I can see my listed spaces.
 
