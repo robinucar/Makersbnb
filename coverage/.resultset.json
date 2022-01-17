@@ -1,17 +1,25 @@
 {
   "RSpec": {
     "coverage": {
-<<<<<<< HEAD
+      "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/add_space_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/view_homepage_spec.rb": {
-=======
-      "/Users/mehmetucarucar/Desktop/makers/makers-projects/weekday-challanges/Makersbnb/spec/features/add_space_spec.rb": {
->>>>>>> fc9bda4c5ccc3d1d6ff2f274671fb70ceb57898e
         "lines": [
           1,
           1,
           1,
           1,
-<<<<<<< HEAD
           null,
           null,
           1,
@@ -19,31 +27,23 @@
           1,
           1,
           1,
-=======
->>>>>>> fc9bda4c5ccc3d1d6ff2f274671fb70ceb57898e
-          1,
           null,
           1,
           null,
-<<<<<<< HEAD
+          1,
+          null,
           null,
           1,
           1,
           1,
           null,
-          0,
-          0,
+          1,
+          1,
           null,
-=======
->>>>>>> fc9bda4c5ccc3d1d6ff2f274671fb70ceb57898e
           null
         ]
       }
     },
-<<<<<<< HEAD
-    "timestamp": 1642439086
-=======
-    "timestamp": 1642437180
->>>>>>> fc9bda4c5ccc3d1d6ff2f274671fb70ceb57898e
+    "timestamp": 1642442565
   }
 }

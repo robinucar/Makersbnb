@@ -6,12 +6,13 @@ feature 'homepage' do
   
   scenario 'Entering email address and clicking sign-up takes user to book a space page' do 
     visit '/' 
-    fill_in :email_address, with: 'testemail@me.com'
+    fill_in('email', with: 'testemail@me.com')
     fill_in :password, with: 'pwtest123'
     fill_in :password_confirmation, with: 'pwtest123'
+  
     click_button 'Sign up'
 
-    expect(page).to have_current_path('/spaces')
+    expect(page).to have_current_path('/properties')
   end
 
   scenario 'Clicking login instead of sign up takes you to new user page' do 
