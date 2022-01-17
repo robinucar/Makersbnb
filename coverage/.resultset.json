@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/J/Projects/makers/05-week5/airbnb/Makersbnb/spec/features/add_space_spec.rb": {
+      "/Users/mehmetucarucar/Desktop/makers/makers-projects/weekday-challanges/Makersbnb/spec/features/add_space_spec.rb": {
         "lines": [
           1,
           1,
@@ -15,6 +15,6 @@
         ]
       }
     },
-    "timestamp": 1642437013
+    "timestamp": 1642437180
   }
 }
