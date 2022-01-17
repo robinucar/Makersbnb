@@ -1,3 +1,9 @@
+To set up the database Connect to psql and create the bnb_app and bnb_app_test databases:
+
+CREATE DATABASE bnb_app; CREATE DATABASE bnb_app_test; To set up the appropriate tables, connect to each database in psql and run the SQL scripts in the db/migrations folder in the given order.
+
+
+
 ## USER STORY 1
 
 	As a property owner,
