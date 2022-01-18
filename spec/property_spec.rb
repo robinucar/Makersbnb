@@ -1,21 +1,30 @@
 require 'property'
+require 'pg'
 
 describe 'property' do
     describe '.add' do
         it 'should add property' do
-            property = Property.add(property: "property_1")
-            expect(property.first['description']).to eq "property_1"
+            property = Property.add(description: "property_1", price: 5)
+            expect(property.description).to eq "property_1"
+            expect(property.price).to eq 5
         end
 
         it 'should add multiple properties' do
-            property = Property.add(property: "property_1")
-            Property.add(property: "property_2")
+            property = Property.add(description: "property_1", price: 5)
 
-            p 'property variable: ', property
-            # returns #<PG::Result:0x00007fe490130f20 status=PGRES_TUPLES_OK ntuples=1 nfields=1 cmd_tuples=1>
+            Property.add(description: "property_2", price: 5)
 
-            expect(Property.all).to include "property_1" #property.first['description']
-            expect(Property.all).to include "property_2"
+            properties = Property.all
+
+            expect(properties.length).to eq 2 
+            expect(properties.first).to be_a Property
+            expect(properties.first.id).to eq property.id
+            expect(properties.first.description).to eq 'property_1'
+            expect(properties.last.description).to eq 'property_2'
         end
+    
+
+        # it 'should have a price' do
+        # end
     end
 end
