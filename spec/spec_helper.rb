@@ -12,7 +12,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 
-# Tell Capybara to talk to BookmarkManager
+# Tell Capybara to talk to AirBnB
 Capybara.app = AirBnB
 require 'simplecov'
 require 'simplecov-console'

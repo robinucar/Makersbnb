@@ -13,8 +13,15 @@ feature 'viewing properties' do
     expect(page).to have_current_path('/properties/new')
   end
 
-  scenario 'Clicking Sign out takes you to the home page' do 
-    visit '/properties' 
+  scenario 'Clicking Sign out takes you to the home page' do
+    visit '/'
+    fill_in :email, with: 'testemail@me.com'
+    fill_in :password, with: 'pwtest123'
+    fill_in :password_confirmation, with: 'pwtest123'
+  
+    click_button 'Sign up'
+    
+    expect(current_path).to eq '/properties'
     expect(page).to have_link 'Sign out', href: '/'
 
     click_link 'Sign out'

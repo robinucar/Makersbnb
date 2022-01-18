@@ -3,49 +3,66 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
+require './lib/user'
 
 class AirBnB < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-  # routes
+  
+  enable :sessions
  
+  # routes
+  
+  # Homepage (sign up page)
   get '/' do 
-    p "welcome to the home page"
+    p "welcome to the homepage (sign up)"
+    session[:user_id] = nil
     erb :index
   end
 
+  # Homepage (sign up form)
   post '/' do 
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id  
+    p "user created id:#{user.id}"
     p "redirecting to properties..."
-    p params[:email]
-    p params[:password]
-    p params[:password_confirmation]
     redirect '/properties'
   end
 
-  get '/properties' do 
-    p "welcome to the properties page"
-    erb :'properties/index'
-  end
-
+  # Login
   get '/sessions/new' do 
     erb :'users/new'
   end  
     
-  post '/sessions/new' do 
+  # Login (form)
+  post '/sessions/new' do  
     p "signing you in"
     redirect '/properties'
   end
 
-  get '/properties/new' do 
-    erb :'properties/new'
+  # Properties
+  get '/properties' do
+    p "welcome to the properties page"
+    @user = User.find(id: session[:user_id])
+    
+    erb :'properties/index'
   end
 
+  # Properties (button - 'List a Property')
   post '/properties' do 
     redirect 'properties/new'
   end
 
+  # List a Property
+  get '/properties/new' do 
+    @user = User.find(id: session[:user_id])
+    erb :'properties/new'
+  end
+
+  # List a Property (form)
   post '/properties/new' do 
+    @user = User.find(id: session[:user_id])
     p params[:property]
     redirect '/properties'
   end
