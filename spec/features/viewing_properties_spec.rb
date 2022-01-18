@@ -5,6 +5,8 @@ feature 'viewing properties' do
   end
 
   scenario 'displays list of properties' do 
+    visit '/properties'
+    
   end
 
   scenario 'user can navigate to list a property page' do 

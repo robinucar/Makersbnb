@@ -6,7 +6,7 @@ require 'pg'
 
 class AirBnB < Sinatra::Base
   configure :development do
-    register Sinatra::Reloader
+    reggit ister Sinatra::Reloader
   end
   # routes
  
