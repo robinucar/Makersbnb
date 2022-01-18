@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/add_space_spec.rb": {
+      "/Users/J/Projects/makers/05-week5/airbnb/Makersbnb/spec/features/add_space_spec.rb": {
         "lines": [
           null,
           null,
@@ -14,7 +14,7 @@
           null
         ]
       },
-      "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/logging_in_spec.rb": {
+      "/Users/J/Projects/makers/05-week5/airbnb/Makersbnb/spec/features/logging_in_spec.rb": {
         "lines": [
           1,
           1,
@@ -26,35 +26,6 @@
           1,
           1,
           1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/view_homepage_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
           1,
           null,
           1,
@@ -70,7 +41,36 @@
           null
         ]
       },
-      "/Users/alexanderjamshidi/Documents/Projects/Makersbnb/spec/features/viewing_properties_spec.rb": {
+      "/Users/J/Projects/makers/05-week5/airbnb/Makersbnb/spec/features/view_homepage_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/J/Projects/makers/05-week5/airbnb/Makersbnb/spec/features/viewing_properties_spec.rb": {
         "lines": [
           1,
           1,
@@ -91,6 +91,29 @@
           1,
           1,
           null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/J/Projects/makers/05-week5/airbnb/Makersbnb/spec/property_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/J/Projects/makers/05-week5/airbnb/Makersbnb/lib/property.rb": {
+        "lines": [
+          1,
           1,
           1,
           null,
@@ -98,6 +121,6 @@
         ]
       }
     },
-    "timestamp": 1642445222
+    "timestamp": 1642501699
   }
 }
