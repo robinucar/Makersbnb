@@ -4,11 +4,37 @@
   <a href='/'>Sign out</a>
 </div>
 
+<center>
+<h1>List a Property</h1>
 
-
-<form action="/properties/new" method="post">
-  <input type="text" name="property" placeholder="Enter a property" />
-  <input type="submit" value="Add">
-</form>
-
-<%= @space %>
+<br>
+<table cellspacing="10">
+  
+  <form action='/properties/new' method='post'>
+    <tr>
+      <td><label for='name'>Property Name:</label></td>
+    </tr><tr>
+      <td><input type='text' name='name' size='50'/></td>
+    </tr><tr>
+      <td><label for='description'>Description:</label></td>
+    </tr><tr>
+      <td><input type='text' name='description' size='50'/></td>
+    </tr><tr>
+      <td><label for='price'>Price per night (£):</label></td>
+    </tr><tr>
+      <td><input type='text' name='price' /></td
+    </tr><tr>
+      <td><label for='available_from '>Available from (DD/MM/YY):</label></td>
+    </tr><tr>
+      <td><input type='text' name='available_from' /></td>
+    </tr><tr>
+      <td><label for='available_until '>Available until (DD/MM/YY):</label></td>
+    </tr><tr>
+      <td><input type='text' name='available_until' /></td>
+    </tr><tr>
+      <td align='center'><input type='submit' value='List my Property' /></td>
+    </tr>
+  </form>
+  
+</table>
+</center>
