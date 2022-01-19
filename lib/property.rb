@@ -19,9 +19,10 @@ class Property
       connection = PG.connect dbname: 'bnb_app'
     end
 
-    p property = connection.exec_params("INSERT INTO properties (description, price, name, available_from, available_until) VALUES ($1, $2, $3, $4, $5) RETURNING id, description, price, name, available_from, available_until;", [description, price, name, available_from, available_until])
-    p Property.new(id: property[0]["id"], description: property[0]["description"], price: property[0]["price"].to_i, name: property[0]['name'], available_from: [0]['available_from'], available_until: [0]['available_until'])
-    # properties
+    property = connection.exec_params("INSERT INTO properties (description, price, name, available_from, available_until) VALUES ($1, $2, $3, $4, $5) RETURNING id, description, price, name, available_from, available_until;", [description, price, name, available_from, available_until])
+
+    Property.new(id: property[0]['id'], description: property[0]['description'], price: property[0]['price'], name: property[0]['name'], available_from: property[0]['available_from'], available_until: property[0]['available_until'] )
+   
 	end
 
   def self.all
@@ -39,7 +40,7 @@ class Property
 
     #p 'properties.map: ', 
     properties.map do |property| 
-      Property.new(id: property["id"], description: property["description"], price: property["price"], name: property['name'], available_from: available_from['available_from'], available_until: available_until['available_until']) 
+      Property.new(id: property["id"], description: property["description"], price: property["price"], name: property['name'], available_from: property['available_from'], available_until: property['available_until']) 
     end
     # ["property_1", "property_2"]
   end
