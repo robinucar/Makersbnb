@@ -7,7 +7,7 @@ require './lib/user'
 
 class AirBnB < Sinatra::Base
   configure :development do
-    reggit ister Sinatra::Reloader
+    register Sinatra::Reloader
   end
   
   enable :sessions
