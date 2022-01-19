@@ -4,6 +4,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
 require './lib/user'
+require './lib/property'
 
 class AirBnB < Sinatra::Base
   configure :development do
@@ -43,9 +44,9 @@ class AirBnB < Sinatra::Base
 
   # Properties
   get '/properties' do
-    p "welcome to the properties page"
+    "welcome to the properties page"
     @user = User.find(id: session[:user_id])
-    
+    @properties = Property.all
     erb :'properties/index'
   end
 
@@ -63,7 +64,7 @@ class AirBnB < Sinatra::Base
   # List a Property (form)
   post '/properties/new' do 
     @user = User.find(id: session[:user_id])
-    p params[:property]
+    Property.add(description: params[:description], price: params[:price], name: params[:name], available_from: params[:available_from], available_until: params[:available_until]) 
     redirect '/properties'
   end
 

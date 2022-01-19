@@ -4,10 +4,10 @@ feature 'viewing properties' do
     expect(page).to have_content('Book a Property')
   end
 
-  scenario 'displays list of properties' do 
-    visit '/properties'
+  # scenario 'displays list of properties' do 
+  #   visit '/properties'
     
-  end
+  # end THIS IS TESTED IN LISTING A PROPERTY FEATURE TEST
 
   scenario 'user can navigate to list a property page' do 
     visit '/properties'
