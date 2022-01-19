@@ -1,3 +1,4 @@
+require 'bcrypt'
 
 class User
   attr_reader :id, :email
@@ -13,10 +14,12 @@ class User
     else 
       connection = PG.connect dbname: 'bnb_app'
     end
+
+    encrypted_password = BCrypt::Password.create(password)
     
     result = connection.exec_params(
       "INSERT INTO users (email, password) VALUES($1, $2) RETURNING id, email;",
-      [email, password]
+      [email, encrypted_password]
     )
     User.new(id: result[0]['id'], email: result[0]['email'])
   end
