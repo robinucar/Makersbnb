@@ -1,9 +1,17 @@
-<div align='right'>
-  <a href='/properties'>Properties</a>|
-  <a href=''>Requests</a>|
+<div style='float: left'>
+  <% if @user %>
+  Logged in as <%= @user.email %>
+  |
   <a href='/'>Sign out</a>
+  <% end %>
 </div>
 
+<div style='float: right'>
+  <a href='/properties'>Properties</a>|
+  <a href=''>Requests</a>
+</div>
+
+<br><br>
 <center>
 <h1>List a Property</h1>
 
