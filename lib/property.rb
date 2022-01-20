@@ -33,8 +33,7 @@ class Property
     else 
       connection = PG.connect dbname: 'bnb_app'
     end
-
-
+    
     property = connection.exec_params(
       "INSERT INTO properties"\
       "(description, price, name, available_from, available_until, owner_id) "\
