@@ -19,6 +19,8 @@ require 'simplecov-console'
 
 require_relative './setup_test_database'
 
+require 'features/web_helpers' # putting reusable code as methods into web_helpers.rb will help dry up our spec files
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console
   # Want a nice code coverage website? Uncomment this next line!
