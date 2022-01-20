@@ -65,7 +65,15 @@ class AirBnB < Sinatra::Base
   post '/properties/new' do 
     p params
     @user = User.find(id: session[:user_id])
-    Property.add(description: params[:description], price: params[:price], name: params[:name], available_from: params[:available_from], available_until: params[:available_until]) 
+    Property.add(
+      description:      params[:description],
+      price:            params[:price], 
+      name:             params[:name],
+      available_from:   params[:available_from],
+      available_until:  params[:available_until],
+      owner_id:         @user.id
+    )
+
     redirect '/properties'
   end
 

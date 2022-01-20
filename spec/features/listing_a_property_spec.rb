@@ -1,5 +1,14 @@
 feature 'listing a property' do 
-  scenario 'adding properties to website will make properties appear on properties page' do 
+  scenario 'signed-in user can add properties to website will make properties appear on properties page' do 
+    # visit '/'
+    # fill_in :email, with: 'testemail@me.com'
+    # fill_in :password, with: 'pwtest123'
+    # fill_in :password_confirmation, with: 'pwtest123'
+  
+    # click_button 'Sign up'
+
+    sign_up_user
+
     visit '/properties/new' 
     fill_in :name, with: 'test_house_name'
     fill_in :description, with: 'pretty_space'
