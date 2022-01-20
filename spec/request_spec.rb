@@ -17,19 +17,21 @@ describe Request do
   end
 
   # Update after .find / .all method.
-  describe '.approve' do
-    it 'approves a request' do
+  describe '.status_update' do
+    it 'approves a pending request' do
       request = Request.create(property_id: '1', guest_id: '5', start_date: '2022-01-30', status: 'pending')
 
-      # expect { Request.approve(id: request.id) }.to change { Request.all.first.status }.from('pending').to('approved')
+      expect { Request.status_update(id: request.id, status: 'approved') }
+      .to change { persisted_data(id: request.id, table_name: 'requests')['status'] }
+      .from('pending').to('approved')
     end
-  end
-
-  describe '.decline' do
-    it 'declines a request' do
+    
+    it 'declines a pending request' do
       request = Request.create(property_id: '1', guest_id: '5', start_date: '2022-01-30', status: 'pending')
-      
-      # expect { Request.decline(id: request.id) }.to change { Request.all.first.status }.from('pending').to('declined')
+
+      expect { Request.status_update(id: request.id, status: 'declined') }
+      .to change { persisted_data(id: request.id, table_name: 'requests')['status'] }
+      .from('pending').to('declined')
     end
   end
 end

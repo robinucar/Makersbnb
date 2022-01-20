@@ -30,7 +30,7 @@ class Request
     )
   end
 
-  def self.approve(id:)
+  def self.status_update(id:, status:)
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect dbname: 'bnb_app_test'
     else
@@ -39,8 +39,8 @@ class Request
 
     result = connection.exec_params(
       "UPDATE requests
-      SET status = 'approved'
-      WHERE id = $1;",
+      SET status = '#{status}'
+      WHERE id = $1 RETURNING id, property_id, guest_id, start_date, status;",
       [id]
     )
 
