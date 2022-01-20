@@ -13,6 +13,7 @@ gem 'rspec'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'webrick'
+gem 'bcrypt'
 
 group :test do
   gem 'simplecov', require: false
