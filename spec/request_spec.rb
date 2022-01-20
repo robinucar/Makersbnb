@@ -16,7 +16,6 @@ describe Request do
     end  
   end
 
-  # Update after .find / .all method.
   describe '.status_update' do
     it 'approves a pending request' do
       request = Request.create(property_id: '1', guest_id: '5', start_date: '2022-01-30', status: 'pending')
@@ -33,5 +32,23 @@ describe Request do
       .to change { persisted_data(id: request.id, table_name: 'requests')['status'] }
       .from('pending').to('declined')
     end
+  end
+
+  describe '.all' do
+    it 'returns all requests' do
+      request = Request.create(property_id: '1', guest_id: '5', start_date: '2022-01-30', status: 'pending')
+      Request.create(property_id: '2', guest_id: '6', start_date: '2022-02-28', status: 'approved')
+      requests = Request.all
+
+      expect(requests.length).to eq 2 
+      expect(requests.first).to be_a Request
+      expect(requests.first.id).to eq request.id
+      expect(requests.first.property_id).to eq '1'
+      expect(requests.last.guest_id).to eq "6"
+      expect(requests.first.start_date).to eq '2022-01-30'
+      expect(requests.last.status).to eq 'approved'
+      expect(requests.first.status).to eq 'pending'
+      expect(requests.last).to be_a Request
+    end          
   end
 end
