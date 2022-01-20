@@ -52,6 +52,7 @@ class AirBnB < Sinatra::Base
 
   # Properties (button - 'List a Property')
   post '/properties' do 
+     params[:user_id]
     redirect 'properties/new'
   end
 
@@ -73,8 +74,12 @@ class AirBnB < Sinatra::Base
       available_until:  params[:available_until],
       owner_id:         @user.id
     )
-
     redirect '/properties'
+  end
+
+  get '/requests' do 
+    @user = User.find(id: session[:user_id])
+    erb :'requests/index'
   end
 
   run if app_file == $0
