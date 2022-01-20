@@ -3,9 +3,9 @@
 2. CREATE DATABASE bnb_app;
 3. CREATE DATABASE bnb_app_test;
 4. \c bnb_app
-5. run sql saved in 01_creating_properties_table.sql and 02._creating_users_table.sql
+5. run sql saved in 01_creating_properties_table.sql, 02._creating_users_table.sql and 03_creating_requests_table.sql
 6. \c bnb
-7. run sql saved in 01_creating_properties_table.sql and 02._creating_users_table.sql
+7. run sql saved in 01_creating_properties_table.sql, 02._creating_users_table.sql and 03_creating_requests_table.sql
 
 
 

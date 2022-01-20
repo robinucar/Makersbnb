@@ -17,10 +17,16 @@ describe User do
       user = User.create(email: "user2@test.com", password: "testpass2")
       User.create(email: "user3@test.com", password: "testpass3")
       persisted_data = persisted_data(id: user.id, table_name: 'users')
-
+      
       expect(user).to be_a(User)
       expect(user.id).to eq(persisted_data['id'])
       expect(user.email).to eq "user2@test.com"
+    end
+
+    it 'hashes the password using BCrypt' do
+      expect(BCrypt::Password).to receive(:create).with('testpass')
+  
+      User.create(email: 'user@test.com', password: 'testpass')
     end
   end
 
@@ -37,5 +43,4 @@ describe User do
       expect(User.find(id: nil)).to eq nil
     end
   end
-
 end
