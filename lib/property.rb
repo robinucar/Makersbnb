@@ -1,15 +1,16 @@
 require 'pg'
 
 class Property
-  attr_reader :properties, :id, :description, :price, :name, :available_from, :available_until
+  attr_reader :properties, :id, :description, :price, :name, :available_from, :available_until, :owner_id
 
-  def initialize(id:, description:, price:, name:, available_from:, available_until:)
+  def initialize(id:, description:, price:, name:, available_from:, available_until:, owner_id: )
     @id = id
     @description = description
     @price = price
     @name = name
     @available_from = available_from
     @available_until = available_until
+    @owner_id = owner_id
   end
 
   def available_from_formatted
@@ -26,17 +27,31 @@ class Property
     reversed.join('-') # "01-10-2022"
   end
 
-  def self.add(description:, price:, name:, available_from:, available_until: )
+  def self.add(description:, price:, name:, available_from:, available_until: , owner_id: )
     if ENV['ENVIRONMENT'] == 'test'
       connection = PG.connect dbname: 'bnb_app_test'
     else 
       connection = PG.connect dbname: 'bnb_app'
     end
 
-    p available_from
-    property = connection.exec_params("INSERT INTO properties (description, price, name, available_from, available_until) VALUES ($1, $2, $3, $4, $5) RETURNING id, description, price, name, available_from, available_until;", [description, price, name, available_from, available_until])
-    p property[0]['available_from']
-    Property.new(id: property[0]['id'], description: property[0]['description'], price: property[0]['price'], name: property[0]['name'], available_from: property[0]['available_from'], available_until: property[0]['available_until'] )
+
+    property = connection.exec_params(
+      "INSERT INTO properties"\
+      "(description, price, name, available_from, available_until, owner_id) "\
+      "VALUES ($1, $2, $3, $4, $5, $6) "\
+      "RETURNING id, description, price, name, available_from, available_until, owner_id;",
+      [description, price, name, available_from, available_until, owner_id]
+    )
+   
+    Property.new(
+      id:               property[0]['id'],
+      description:      property[0]['description'],
+      price:            property[0]['price'],
+      name:             property[0]['name'],
+      available_from:   property[0]['available_from'],
+      available_until:  property[0]['available_until'],
+      owner_id:         property[0]['owner_id'] 
+    )
    
 	end
 
@@ -50,7 +65,15 @@ class Property
     properties = connection.exec_params("SELECT * FROM properties;")
 
     properties.map do |property| 
-      Property.new(id: property["id"], description: property["description"], price: property["price"], name: property['name'], available_from: property['available_from'], available_until: property['available_until']) 
+      Property.new(
+        id:               property["id"],
+        description:      property["description"],
+        price:            property["price"],
+        name:             property['name'],
+        available_from:   property['available_from'],
+        available_until:  property['available_until'],
+        owner_id:         property['owner_id']
+      ) 
     end
   end
 end
