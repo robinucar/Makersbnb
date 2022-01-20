@@ -10,12 +10,7 @@ feature 'listing a property' do
     sign_up_user
 
     visit '/properties/new' 
-    fill_in :name, with: 'test_house_name'
-    fill_in :description, with: 'pretty_space'
-    fill_in :price, with: '100'
-    fill_in :available_from, with: '2022/09/30' #PG error if we try '30/09/2022' 
-    fill_in :available_until, with: '2022/12/31'
-    click_button 'List my Property'
+    list_property
 
     expect(page).to have_current_path('/properties')
     click_button 'List a Property' 
