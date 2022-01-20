@@ -46,7 +46,7 @@ class AirBnB < Sinatra::Base
   get '/properties' do
     "welcome to the properties page"
     @user = User.find(id: session[:user_id])
-    @properties = Property.all
+    @properties = Property.all # an array of Property instances 
     erb :'properties/index'
   end
 
@@ -63,6 +63,7 @@ class AirBnB < Sinatra::Base
 
   # List a Property (form)
   post '/properties/new' do 
+    p params
     @user = User.find(id: session[:user_id])
     Property.add(description: params[:description], price: params[:price], name: params[:name], available_from: params[:available_from], available_until: params[:available_until]) 
     redirect '/properties'
