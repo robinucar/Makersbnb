@@ -44,9 +44,9 @@ class AirBnB < Sinatra::Base
 
   # Properties
   get '/properties' do
-    "welcome to the properties page"
+    p "welcome to the properties page"
     @user = User.find(id: session[:user_id])
-    @properties = Property.all # an array of Property instances 
+    p @properties = Property.all # an array of Property instances 
     erb :'properties/index'
   end
 

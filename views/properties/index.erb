@@ -15,7 +15,6 @@
 <center>
 <h1>Book a Property </h1>
 
-
 <form action='/properties' method='post'>
   <input type='submit' value='List a Property'>
 </form>
@@ -31,8 +30,9 @@
   <br>
   Available until: <%= property.available_until_formatted %>
   <br>
+  <form action='/properties/<%= property.id %>' method='get' class='property'>
+    <input type='submit' value='Book' />
+  </form>
+  <br>
   <br>
 <% end %>
-
-
-
