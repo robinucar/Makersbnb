@@ -64,11 +64,10 @@ class Request
 
     requests.map do |request| 
       Request.new(id: request["id"],
-          property_id: request["property_id"], 
-          guest_id: request["guest_id"], 
-          start_date: request['start_date'], 
-          status: request['status']) 
+          property_id: request["property_id"],
+          guest_id: request["guest_id"],
+          start_date: request['start_date'],
+          status: request['status'])
     end
-
   end
 end
