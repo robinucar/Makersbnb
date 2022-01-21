@@ -40,7 +40,7 @@ describe Request do
       request = Request.create(property_id: '1', guest_id: '5', start_date: '2022-01-30', end_date: '2022-02-15', status: 'pending')
       Request.create(property_id: '2', guest_id: '6', start_date: '2022-02-28', end_date: '2022-03-13', status: 'approved')
       requests = Request.all
-      p requests
+      # p requests
 
       expect(requests.length).to eq 2
       expect(requests.first).to be_a Request

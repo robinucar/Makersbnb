@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>MakersBnB</title>
+</head>
+<body>
+
 <div style='float: left'>
   <% if @user %>
   Logged in as <%= @user.email %>
@@ -8,7 +19,7 @@
 
 <div style='float:right'>
   <a href='/properties'>Properties</a>|
-  <a href=''>Requests</a>
+  <a href='/requests'>Requests</a>
 </div>
 
 <br><br><br>
@@ -24,10 +35,22 @@
   <tr>
     <td>a request I've made </td>
     <td>a request I've received </td>
-    
   </tr>
   <tr>
     <td></td>
     <td></td>
   </tr>
 
+</body>
+</html>
+
+<% @requests.each do |request| %>
+  Property id: <%= request.property_id %>
+  <br>
+  Start Date: <%= request.start_date %>
+  <br>
+  End Date: <%= request.end_date %>
+  <br>
+  Status: <%= request.status %>
+  <br><br><br>
+<% end %>

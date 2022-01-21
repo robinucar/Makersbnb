@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>MakersBnB</title>
+</head>
+<body>
+
 <div style='float: left'>
   <% if @user %>
   Logged in as <%= @user.email %>
@@ -8,7 +19,7 @@
 
 <div style='float: right'>
   <a href='/properties'>Properties</a>|
-  <a href=''>Requests</a>
+  <a href='/requests'>Requests</a>
 </div>
 
 <br><br><br>
@@ -18,21 +29,24 @@
 <form action='/properties' method='post'>
   <input type='submit' value='List a Property'>
 </form>
-
+<br><br>
 <% @properties.each do |property| %>
   Property name: <%= property.name %>
   <br>
   Property description: <%= property.description %>
   <br>
-  Price per night: <%= property.price %>
+  Price per night: £<%= property.price %>
   <br>
   Available from: <%= property.available_from_formatted %>
   <br>
   Available until: <%= property.available_until_formatted %>
   <br>
-  <form action='/properties/<%= property.id %>' method='get' class='property'>
+  <form action='/properties/<%= property.id %>/request' method='get' class='property'>
     <input type='submit' value='Book' />
   </form>
   <br>
   <br>
 <% end %>
+
+</body>
+</html>

@@ -1,14 +1,15 @@
 
 feature 'book a property' do 
   scenario 'making a request to book a property' do 
-     
+    owner = User.create(email: "user@test.com", password: "testpass") 
+
     property = Property.add(
       description: "property_1",
       price: 5,
       name: "testname",
       available_from: "01/10/2022",
       available_until: "01/12/2022",
-      owner_id: '123'
+      owner_id: owner.id
     )
     
     sign_up_user 
@@ -17,7 +18,7 @@ feature 'book a property' do
     
     click_on('Book')
     
-    expect(page).to have_current_path("/properties/#{property.id}")
+    expect(page).to have_current_path("/properties/#{property.id}/request")
     expect(page).to have_content('testname')
     expect(page).to have_button('Request to Book')
 

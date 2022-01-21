@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>MakersBnB</title>
+</head>
+<body>
+
+  <div style='float: left'>
+    <% if @user %>
+    Logged in as <%= @user.email %>
+    |
+    <a href='/'>Sign out</a>
+    <% end %>
+  </div>
+  <div style='float: right'>
+    <a href='/properties'>Properties</a>|
+    <a href='/requests'>Requests</a>
+  </div>
+  
+  <br><br><br>
+  <center>
+  <h1>Request Booking</h1>
+
+  <p><%= @property.name %><br>
+  <%= @property.description %><br>
+  £<%= @property.price %> per night</p>
+
+  Email the owner: <a href='mailto:<%= @owner_email %>?subject=I have a question about staying at <%= @property.name %>'><%= @owner_email %></a><br><br>
+
+  <form action="/requests/<%= @property.id %>/request" method="post">
+    <label for="start_date">Start date: </label>
+    <input type="date" name="start_date"><br>
+    <label for="start_date">End date: </label>
+    <input type="date" name="end_date"><br><br>
+    <input type="submit" value="Request to Book">
+  </form>
+  
+</body>
+</html>
