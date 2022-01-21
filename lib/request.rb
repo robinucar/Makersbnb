@@ -43,9 +43,10 @@ class Request
     end
 
     result = connection.exec_params(
-      "UPDATE requests
-      SET status = '#{status}'
-      WHERE id = $1 RETURNING id, property_id, guest_id, start_date, end_date, status;",
+      "UPDATE requests "\
+      "SET status = '#{status}' "\
+      "WHERE id = $1 "\
+      "RETURNING id, property_id, guest_id, start_date, end_date, status;",
       [id]
     )
 
@@ -69,12 +70,38 @@ class Request
     requests = connection.exec_params("SELECT * FROM requests;")
 
     requests.map do |request| 
-      Request.new(id: request["id"],
-          property_id: request["property_id"],
-          guest_id: request["guest_id"],
-          start_date: request['start_date'],
-          end_date: request['end_date'],
-          status: request['status'])
+      Request.new(
+        id: request["id"],
+        property_id: request["property_id"],
+        guest_id: request["guest_id"],
+        start_date: request['start_date'],
+        end_date: request['end_date'],
+        status: request['status']
+      )
+    end
+  end
+
+  def self.where(request_id:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect dbname: 'bnb_app_test'
+    else 
+      connection = PG.connect dbname: 'bnb_app'
+    end
+
+    result = connection.exec_params(
+      "SELECT * FROM requests WHERE guest_id = $1;",
+      [request_id]
+    )
+
+    result.map do |request|
+      Request.new(
+        id: request["id"],
+        property_id: request["property_id"],
+        guest_id: request["guest_id"],
+        start_date: request['start_date'],
+        end_date: request['end_date'],
+        status: request['status']
+      )
     end
   end
 end

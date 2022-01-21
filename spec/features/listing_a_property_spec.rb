@@ -1,15 +1,7 @@
 feature 'listing a property' do 
   scenario 'signed-in user can add properties to website will make properties appear on properties page' do 
-    # visit '/'
-    # fill_in :email, with: 'testemail@me.com'
-    # fill_in :password, with: 'pwtest123'
-    # fill_in :password_confirmation, with: 'pwtest123'
-  
-    # click_button 'Sign up'
-
     sign_up_user
 
-    visit '/properties/new' 
     list_property
 
     expect(page).to have_current_path('/properties')
@@ -19,7 +11,7 @@ feature 'listing a property' do
     fill_in :name, with: 'my flat'
     fill_in :description, with: 'ugly space'
     fill_in :price, with: '1000000'
-    fill_in :available_from, with: '2023/09/30' #30/09/2023 doesn't work because we get PG error 'date/time field value out of range:"
+    fill_in :available_from, with: '2023-09-30' #30/09/2023 doesn't work because we get PG error 'date/time field value out of range:"
     fill_in :available_until, with: '2023/12/31'
     click_button 'List my Property'
 

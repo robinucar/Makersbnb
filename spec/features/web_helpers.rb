@@ -9,6 +9,7 @@ def sign_up_user
 end
 
 def list_property
+  click_button 'List a Property'
   fill_in :name, with: 'test_house_name'
   fill_in :description, with: 'pretty_space'
   fill_in :price, with: '100'
